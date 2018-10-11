@@ -2,6 +2,21 @@
     ViewData["Title"] = "Home Page";
 }
 
+<h3>Current user: @User.Identity.Name</h3>
+
+@{ 
+    var role = "";
+    if(User.IsInRole("Student"))
+    {
+        role = "Student";
+    }
+    else
+    {
+        role = "Unknown";
+    }
+}
+<h3>Role: @role</h3>
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
