@@ -1,0 +1,93 @@
+﻿@model IEnumerable<ProjectPastel.Models.SponsoredProject>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="col-md-5 col-sm-5">
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th class="col-md-5 col-sm-5">
+                @Html.DisplayNameFor(model => model.TeamSize)
+            </th>
+            <!--
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contacts)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InScope)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OutOfScope)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SkillRequirements)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RelatedProjects)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Duration)
+            </th>
+            -->
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">
+                        |
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamSize)
+                </td>
+                <!--
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Contacts)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InScope)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OutOfScope)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SkillRequirements)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RelatedProjects)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Duration)
+                        </td>
+                -->
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
