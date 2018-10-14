@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewData["Title"] = "SelectProject";
+}
+
+<h2>SelectProject</h2>
+
+<h3>Current user: @User.Identity.Name</h3>
+
+@{
+    string userName = (User.Identity.Name).Split('@')[0];
+}
+<h3>Username: @userName</h3>
+
+
+
+<form>
+    <!-- DATE -->
+    <div class="form-group">
+        <label class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input class="form-control" value="@DateTime.Now.ToString("d")" readonly />
+            <span class="text-danger"></span>
+        </div>
+    </div>
+
+    <!-- USERNAME (Student ID) -->
+    <div class="form-group">
+        <label class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input class="form-control" value=@userName readonly />
+            <span class="text-danger"></span>
+        </div>
+    </div>
+
+    @model IEnumerable<ProjectPastel.Models.SponsoredProject>
+    <!-- OPTION 1 -->
+    <div class="form-group">
+        <label class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <select class="form-control">
+                <option value="">Select a Project</option>
+                @{
+                    foreach (var item in Model)
+                    {
+                        <option value=item.Title>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+
+    <!-- OPTION 2 -->
+    <div class="form-group">
+        <label class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <select class="form-control">
+                <option value="">Select a Project</option>
+                @{
+                    foreach (var item in Model)
+                    {
+                        <option value=item.Title>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+
+    <!-- OPTION 3 -->
+    <div class="form-group">
+        <label class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <select class="form-control">
+                <option value="">Select a Project</option>
+                @{
+                    foreach (var item in Model)
+                    {
+                        <option value=item.Title>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+
+</form>
+
+

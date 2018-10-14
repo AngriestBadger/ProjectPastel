@@ -4,12 +4,30 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using ProjectPastel.Data;
 using ProjectPastel.Models;
 
 namespace ProjectPastel.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext _context;
+        public HomeController(ApplicationDbContext context)
+        {
+            _context = context; 
+        }
+
+        public async Task<IActionResult> SelectProject()
+        {
+            ViewData["Message"] = "Student project selection page.";
+
+            var allProjects = from project in _context.SponsoredProject
+                              orderby project.Title descending
+                              select project;
+            return View(await allProjects.ToListAsync()); 
+        }
+
         public IActionResult Index()
         {
             return View();
