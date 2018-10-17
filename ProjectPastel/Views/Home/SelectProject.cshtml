@@ -3,17 +3,6 @@
     ViewData["Title"] = "SelectProject";
 }
 
-<h2>SelectProject</h2>
-
-<h3>Current user: @User.Identity.Name</h3>
-
-@{
-    string userName = (User.Identity.Name).Split('@')[0];
-}
-<h3>Username: @userName</h3>
-
-
-
 <form>
     <!-- DATE -->
     <div class="form-group">
@@ -28,7 +17,7 @@
     <div class="form-group">
         <label class="col-md-2 control-label"></label>
         <div class="col-md-10">
-            <input class="form-control" value=@userName readonly />
+            <input class="form-control" />
             <span class="text-danger"></span>
         </div>
     </div>
