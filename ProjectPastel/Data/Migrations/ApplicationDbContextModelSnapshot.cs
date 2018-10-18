@@ -184,19 +184,38 @@ namespace ProjectPastel.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("ProjectPastel.Models.GroupPreferences", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("GroupName");
+
+                    b.Property<int>("GroupSize");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GroupPreferences");
+                });
+
             modelBuilder.Entity("ProjectPastel.Models.SponsoredProject", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AllocatedStudent");
-
                     b.Property<string>("Contacts");
 
                     b.Property<string>("Description");
 
                     b.Property<string>("Duration");
+
+                    b.Property<int?>("GroupPreferencesId");
+
+                    b.Property<int?>("GroupPreferencesId1");
+
+                    b.Property<int?>("GroupPreferencesId2");
 
                     b.Property<string>("InScope");
 
@@ -215,6 +234,12 @@ namespace ProjectPastel.Data.Migrations
                     b.Property<string>("Title");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("GroupPreferencesId");
+
+                    b.HasIndex("GroupPreferencesId1");
+
+                    b.HasIndex("GroupPreferencesId2");
 
                     b.ToTable("SponsoredProject");
                 });
@@ -262,6 +287,21 @@ namespace ProjectPastel.Data.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("ProjectPastel.Models.SponsoredProject", b =>
+                {
+                    b.HasOne("ProjectPastel.Models.GroupPreferences")
+                        .WithMany("Preference1")
+                        .HasForeignKey("GroupPreferencesId");
+
+                    b.HasOne("ProjectPastel.Models.GroupPreferences")
+                        .WithMany("Preference2")
+                        .HasForeignKey("GroupPreferencesId1");
+
+                    b.HasOne("ProjectPastel.Models.GroupPreferences")
+                        .WithMany("Preference3")
+                        .HasForeignKey("GroupPreferencesId2");
                 });
 #pragma warning restore 612, 618
         }

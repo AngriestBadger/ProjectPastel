@@ -3,80 +3,66 @@
     ViewData["Title"] = "SelectProject";
 }
 
-<form>
-    <!-- DATE -->
-    <div class="form-group">
-        <label class="col-md-2 control-label"></label>
-        <div class="col-md-10">
-            <input class="form-control" value="@DateTime.Now.ToString("d")" readonly />
-            <span class="text-danger"></span>
+@using ProjectPastel.Models
+
+<div class="parallax_scrolling">
+    <div class="dark_background">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2">
+                <div class="oxygen">
+                    <h1>Project Pastel</h1>
+                    <h2>Project Preferences</h2>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 
-    <!-- USERNAME (Student ID) -->
-    <div class="form-group">
-        <label class="col-md-2 control-label"></label>
-        <div class="col-md-10">
-            <input class="form-control" />
-            <span class="text-danger"></span>
-        </div>
+<!--
+
+    ALRIGHT SO
+
+    We're using Models\GroupPreferences and Models\SponsoredProject, have a gander and hopefully it's easy enough
+
+    I was following this tutorial
+    https://odetocode.com/blogs/scott/archive/2013/03/11/dropdownlistfor-with-asp-net-mvc.aspx
+
+    Well, "Tutorial" - There's a comment where he assumes the List is populated from a database or elsewhere
+    Which is all well and good, except I have no idea how to do that. 
+
+-->
+
+<hr />
+<div class="row">
+    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2">
+
+        @model ParentModel
+        @{ 
+
+            //Model.GroupPreferences.projectsList.Add
+
+        }
+        @using (Html.BeginForm())
+        {
+            @Html.LabelFor(o => o.GroupPreferences.GroupName)
+            @Html.EditorFor(o => o.GroupPreferences.GroupName)
+
+            <p></p> // Too lazy to figure out line breaks
+
+            @Html.LabelFor(o => o.GroupPreferences.Preference1)
+            @Html.EditorFor(o => o.GroupPreferences.Preference1)
+
+            <p></p>
+
+            @Html.LabelFor(o => o.GroupPreferences.Preference2)
+            @Html.EditorFor(o => o.GroupPreferences.Preference2)
+
+            <p></p>
+            //@Html.LabelFor(o => o.GroupPreferences)
+            //@Html.DropDownListFor(o => o.GroupPreferences.selectedProjectId3, Model.GroupPreferences.ProjectItems3)
+            //@Html.ValidationMessageFor(o => o.GroupPreferences.selectedProjectId3)
+
+        }
+
     </div>
-
-    @model IEnumerable<ProjectPastel.Models.SponsoredProject>
-    <!-- OPTION 1 -->
-    <div class="form-group">
-        <label class="col-md-2 control-label"></label>
-        <div class="col-md-10">
-            <select class="form-control">
-                <option value="">Select a Project</option>
-                @{
-                    foreach (var item in Model)
-                    {
-                        <option value=item.Title>
-                            @Html.DisplayFor(modelItem => item.Title)
-                        </option>
-                    }
-                }
-            </select>
-        </div>
-    </div>
-
-    <!-- OPTION 2 -->
-    <div class="form-group">
-        <label class="col-md-2 control-label"></label>
-        <div class="col-md-10">
-            <select class="form-control">
-                <option value="">Select a Project</option>
-                @{
-                    foreach (var item in Model)
-                    {
-                        <option value=item.Title>
-                            @Html.DisplayFor(modelItem => item.Title)
-                        </option>
-                    }
-                }
-            </select>
-        </div>
-    </div>
-
-    <!-- OPTION 3 -->
-    <div class="form-group">
-        <label class="col-md-2 control-label"></label>
-        <div class="col-md-10">
-            <select class="form-control">
-                <option value="">Select a Project</option>
-                @{
-                    foreach (var item in Model)
-                    {
-                        <option value=item.Title>
-                            @Html.DisplayFor(modelItem => item.Title)
-                        </option>
-                    }
-                }
-            </select>
-        </div>
-    </div>
-
-</form>
-
-
+</div>

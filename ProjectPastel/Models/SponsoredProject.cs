@@ -25,8 +25,11 @@ namespace ProjectPastel.Models
         [Display(Name = "Team Size")]
         public string TeamSize { get; set; }
         public string Duration { get; set; }
-        [Display(Name = "Allocated Student")]
-        public string AllocatedStudent { get; set; }
-        public bool IsAllocated { get; set; }
+        public bool IsAllocated { get; set; }           // For easier allocation maybe, if Admin wants to manually allocate?
+        // For allocation process
+        //public List<Preference> ListOfGroups { get; set; }
+        // Actual allocated group/students
+        //public string AllocatedGroupName { get; set; }
+        //public List<Preference> AllocatedStudents { get; set; }
     }
 }

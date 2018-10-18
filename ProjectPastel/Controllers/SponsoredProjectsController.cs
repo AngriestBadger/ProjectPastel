@@ -54,7 +54,7 @@ namespace ProjectPastel.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Description,Contacts,InScope,OutOfScope,SkillRequirements,RelatedProjects,TeamSize,Duration,AllocatedStudent,IsAllocated")] SponsoredProject sponsoredProject)
+        public async Task<IActionResult> Create([Bind("Id,SponsorName,Title,Description,Contacts,InScope,OutOfScope,SkillRequirements,RelatedProjects,TeamSize,Duration,IsAllocated")] SponsoredProject sponsoredProject)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace ProjectPastel.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,Contacts,InScope,OutOfScope,SkillRequirements,RelatedProjects,TeamSize,Duration,AllocatedStudent,IsAllocated")] SponsoredProject sponsoredProject)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,SponsorName,Title,Description,Contacts,InScope,OutOfScope,SkillRequirements,RelatedProjects,TeamSize,Duration,IsAllocated")] SponsoredProject sponsoredProject)
         {
             if (id != sponsoredProject.Id)
             {

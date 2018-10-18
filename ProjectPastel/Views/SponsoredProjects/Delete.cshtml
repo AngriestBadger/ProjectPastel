@@ -12,6 +12,12 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.SponsorName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SponsorName)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.Title)
         </dt>
         <dd>
@@ -64,12 +70,6 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Duration)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.AllocatedStudent)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.AllocatedStudent)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.IsAllocated)

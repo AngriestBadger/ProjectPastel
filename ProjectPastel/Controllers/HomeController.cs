@@ -18,15 +18,11 @@ namespace ProjectPastel.Controllers
             _context = context; 
         }
 
-        public async Task<IActionResult> SelectProject()
+        public IActionResult SelectProject()
         {
-            ViewData["Message"] = "Student project selection page.";
-
-            var allProjects = from project in _context.SponsoredProject
-                              orderby project.Title descending
-                              select project;
-            return View(await allProjects.ToListAsync()); 
+            return View(); 
         }
+        
 
         public IActionResult Index()
         {

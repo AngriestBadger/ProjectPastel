@@ -14,5 +14,6 @@ namespace ProjectPastel.Data
         {
         }
         public DbSet<ProjectPastel.Models.SponsoredProject> SponsoredProject { get; set; }
+        public DbSet<ProjectPastel.Models.GroupPreferences> GroupPreferences { get; set; }
     }
 }
